@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/styles.css">
+</head>
+<body>
+    <h1 class="heading"> Notes App </h1>
+    <form action="/save" method="post">
+        <input type="text" name="title" id="title" placeholder="Title of file">
+        <textarea name="data" id="data" placeholder="Write here..."></textarea>
+        <input type="submit" value="Save">
+    </form>
+
+    <div class="fileList">
+
+        <% if(files.length > 0){ %>
+            <% files.forEach(name => { %>
+                <div class="file">
+                    <h3 class="filename"><%= name %></h3>
+                    <a href="/file/<%= name %>" class="link">Open</a>
+                    <a href="/delete/<%= name %>" class="del link">Delete</a>
+                </div>
+            <% }); %>
+        <% }else{ %>
+        <h3>No Notes Yet.</h3>
+        <% } %>
+    </div>
+</body>
+</html>
